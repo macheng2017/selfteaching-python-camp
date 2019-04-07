@@ -1,8 +1,7 @@
+#encoding:utf-8 
 # 1. 获取到网页内容
 # 2. 使用以前写的词频统计
 # 3. 发送email到自己的邮箱
-
-
 from mymodule.stats_word import stats_text_cn
 from mymodule.utils import request, send_email
 import json
@@ -19,7 +18,6 @@ bot = Bot()
 # # print(list(res.keys()), '--------------------------', res.values())
 # chart(list(res.keys()), list(res.values()))
 
-
 @bot.register()
 def print_others(msg):
     # print(msg.type, msg.text)
@@ -34,7 +32,7 @@ def print_others(msg):
         print(res.keys(), '--------------------------', res.values())
         chart(list(res.keys()), list(res.values()))
         # res = json.dumps(res, ensure_ascii=False)
-        img_path = path_file + '\\mymodule\\' + 're.png'
+        img_path = path_file + '/mymodule/' + 're.png'
         print('img_path', img_path)
         msg.reply_image(img_path)
     #     pass
@@ -42,13 +40,11 @@ def print_others(msg):
 
 # # 自动接受新的好友请求
 
-
 @bot.register(msg_types=FRIENDS)
 def auto_accept_friends(msg):
     # 接受好友请求
     new_friend = msg.card.accept()
     # 向新的好友发送消息
     new_friend.send('哈哈，我自动接受了你的好友请求')
-
 
 embed()
