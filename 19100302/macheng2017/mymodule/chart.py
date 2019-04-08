@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from os import path
-from matplotlib.font_manager import _rebuild
+# from matplotlib.font_manager import _rebuild
 path_file = path.dirname(path.realpath(__file__))
-_rebuild()  # reload一下
+# _rebuild()  # reload一下
 # from pylab import mpl
 
 # mpl.rcParams['font.sans-serif'] = ['FangSong']  # 指定默认字体

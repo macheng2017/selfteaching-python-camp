@@ -10,34 +10,34 @@ from mymodule.chart import chart
 from os import path
 path_file = path.dirname(path.realpath(__file__))
 
-text = request('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
+# text = request('https://mp.weixin.qq.com/s/pLmuGoc4bZrMNl7MSoWgiA')
 
-res = stats_text_cn(text, 20)
-print('res', res)
+# res = stats_text_cn(text, 20)
+# print('res', res)
 # print(list(res.keys()), '--------------------------', res.values())
-chart(list(res.keys()), list(res.values()))
-# bot = Bot()
+# chart(list(res.keys()), list(res.values()))
+bot = Bot()
 
 
-# @bot.register()
-# def print_others(msg):
-#     # print(msg.type, msg.text)
-#     if msg.type == 'Sharing':
-#         print('chat', msg.chat)
-#         print('sender', msg.sender)
-#         print(msg.text, msg.url)
-#         # 处理并返回
-#         text = request(msg.url)
-#         res = stats_text_cn(text, 100)
-#         print('res', res)
-#         print(res.keys(), '--------------------------', res.values())
-#         chart(list(res.keys()), list(res.values()))
-#         # res = json.dumps(res, ensure_ascii=False)
-#         img_path = path_file + '/mymodule/' + 're.png'
-#         print('img_path', img_path)
-#         msg.reply_image(img_path)
-#     #     pass
-#     print(msg)
+@bot.register()
+def print_others(msg):
+    # print(msg.type, msg.text)
+    if msg.type == 'Sharing':
+        # print('chat', msg.chat)
+        # print('sender', msg.sender)
+        # print(msg.text, msg.url)
+        # 处理并返回
+        text = request(msg.url)
+        res = stats_text_cn(text, 100)
+        # print('res', res)
+        # print(res.keys(), '--------------------------', res.values())
+        chart(list(res.keys()), list(res.values()))
+        # res = json.dumps(res, ensure_ascii=False)
+        img_path = path_file + '/mymodule/' + 're.png'
+        print('img_path', img_path)
+        msg.reply_image(img_path)
+    #     pass
+    print(msg)
 
 # # # 自动接受新的好友请求
 
@@ -48,4 +48,4 @@ chart(list(res.keys()), list(res.values()))
 #     # 向新的好友发送消息
 #     new_friend.send('哈哈，我自动接受了你的好友请求')
 
-# embed()
+embed()
